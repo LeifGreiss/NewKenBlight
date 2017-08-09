@@ -20,6 +20,7 @@ center: {lat: 40.563857,  lng: -79.764128},
 //The map is centered at the Berkey Creamery's coordinates, all markers are not immediately in view, but most of them are.
 mapTypeId: google.maps.MapTypeId.ROADMAP
 });
+//array for markers
 var locationss = [
 {Address: "  637  5th Avenue  ", Type : "  Residential  ", Owner: "  Robert and Elizabeth Schneider  ", Notes: "    ", lat:   40.562095  , lng:  -79.764594  },
 {Address: "  1001-1009  5th Avenue  ", Type : "  Commercial  ", Owner: "  Anthony Csizmadia  ", Notes: "    ", lat:   40.566969  , lng:  -79.765771  },
@@ -33,7 +34,7 @@ var locationss = [
 {Address: "  733 5th Ave  ", Type : "  Commercial  ", Owner: "  Ed & Maria Dorsey   ", Notes: "  Rear house to be demolished by owners when they have the money   ", lat:   40.563447  , lng:  -79.765187  },
 {Address: "  324 10th Street  ", Type : "  Residential  ", Owner: "  Michael & Theodore Saganis  ", Notes: "    ", lat:   40.566425  , lng:  -79.767528  }
 ];
-//I ended up replacing the array from the document provided to the class with my own so I could include content as well, for the infowindow.
+//array for polyline
 var corridorCoordinates = [
    {lat:40.569573, lng: -79.766179},
    {lat: 40.562610, lng: -79.764522}
