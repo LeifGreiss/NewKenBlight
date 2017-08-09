@@ -34,6 +34,17 @@ var locationss = [
 {Address: "  324 10th Street  ", Type : "  Residential  ", Owner: "  Michael & Theodore Saganis  ", Notes: "    ", lat:   40.566425  , lng:  -79.767528  }
 ];
 //I ended up replacing the array from the document provided to the class with my own so I could include content as well, for the infowindow.
+var corridorCoordinates = [
+   {lat:40.569573, lng: -79.766179},
+   {lat: 40.562610, lng: -79.764522}
+   ];
+var corridor = new google.maps.Polyline({
+   path: corridorCoordinates,
+   geodesic: true,
+   strokeColor: '#FF0000',
+   strokeOpacity: .5,
+   strokeWeight: 2
+});
 var infowindow = new google.maps.InfoWindow;
 var marker, i;
 for(var i=0; i<locationss.length; i++){
