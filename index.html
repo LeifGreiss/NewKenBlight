@@ -15,10 +15,9 @@ width: 100%;
 function initMap() {
 var map = new google.maps.Map(document.getElementById('map'), {
 zoom: 16,
-//I didn't want to set the zoom at too far to avoid the markers clustering too close together, I felt 14 as the default was a decent happy medium.
 center: {lat: 40.565411, lng: -79.765182},
-//The map is centered at the Berkey Creamery's coordinates, all markers are not immediately in view, but most of them are.
 mapTypeId: google.maps.MapTypeId.ROADMAP,
+//Style source Xavier Fourcrier https://snazzymaps.com/style/25/blue-water
 styles: [
    {
             featureType: 'administrative.land_parcel',
@@ -127,12 +126,14 @@ var corridorCoordinates = [
 var corridor = new google.maps.Polyline({
    path: corridorCoordinates,
    geodesic: true,
-   strokeColor: '#FF0000',
+   strokeColor: 'steelblue',
+   //strokeColor: '#FF0000',
    strokeOpacity: .5,
    strokeWeight: 6,
-   title: "Corridor of Innovation"
 });
+//create polyline infowindow
 var polylineWindow = new google.maps.InfoWindow;
+//create marker infowindow
 var infowindow = new google.maps.InfoWindow;
 var marker, i;
 for(var i=0; i<locationss.length; i++){
@@ -140,8 +141,8 @@ var marker = new google.maps.Marker({
 position: new google.maps.LatLng(locationss[i].lat, locationss[i].lng),
 map: map,
 title: locationss[i].Address
-//It takes a second or two for the title to display, but it shows the location that the crime occurred in by hovering over the marker. However, title will not display if the marker is clicked on.
 });
+//adds on click event for the marker
 google.maps.event.addListener(marker, 'click', (function(marker, i) {
 return function() {
 var Address = locationss[i].Address;
@@ -149,13 +150,14 @@ var Property = locationss[i].Type;
 var Owner = locationss[i].Owner;
 var Notes = locationss[i].Notes;
 var iwContent = "<div style = 'width:200px;min-height:40px'><h3>" + Address + "</h3>" + "<p>" + Property + "</p>" + "<p>" + Owner + "</p>"+ "<p>"+ Notes + "</p>" + "</div>";
-//Inserting the div for the infowindow straight into the setContent parenthesis was not working so I created a variable to house it.
+//Inserting the div for the infowindow straight into the setContent parenthesis was not working so I created a variable.
 infowindow.setContent(iwContent);
 infowindow.open(map, marker);
 //By clicking on markers an infowindow will open up that displays details related to the crime. Specifically the location, date, the type of offense and details about the crime.
 }
 })(marker, i));
 }
+//adds infowindow for polyline
 google.maps.event.addListener(corridor, 'mouseover', function(e) {
    var position = e.latLng
    var pwContent = "<div style = 'width:200px;min-height:20px'><h3>Corridor of Innovation</h3></div>";
