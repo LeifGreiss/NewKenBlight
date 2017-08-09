@@ -46,6 +46,7 @@ var corridor = new google.maps.Polyline({
    strokeWeight: 2,
    title: "Corridor of Innovation"
 });
+var polylineWindow = new google.maps.InfoWindow;
 var infowindow = new google.maps.InfoWindow;
 var marker, i;
 for(var i=0; i<locationss.length; i++){
@@ -69,6 +70,13 @@ infowindow.open(map, marker);
 }
 })(marker, i));
 }
+  google.maps.event.addListener(corridor, 'mouseover', function() {
+    myInfoWindow.open(mymap);
+});
+google.maps.event.addListener(corridor, 'mouseout', function() {
+    myInfoWindow.close();
+});
+infowindow.setContent("The Corridor of Innovation");
 corridor.setMap(map);
 }
     </script>
