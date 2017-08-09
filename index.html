@@ -48,21 +48,7 @@ var corridor = new google.maps.Polyline({
    strokeWeight: 4,
    title: "Corridor of Innovation"
 });
-var polylineWindow = new InfoBox({
-   content: document.getElementById("infobox"),
-                 disableAutoPan: true,
-                 maxWidth: 150,
-                 pixelOffset: new google.maps.Size(-140, 0),
-                 zIndex: null,
-                  boxStyle: {
-                    background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
-                    opacity: 0.75,
-                    width: "320px"
-                },
-                closeBoxMargin: "12px 4px 2px 2px",
-                closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
-                infoBoxClearance: new google.maps.Size(1, 1)
-            });
+var polylineWindow = ew google.maps.InfoWindow;
 var infowindow = new google.maps.InfoWindow;
 var marker, i;
 for(var i=0; i<locationss.length; i++){
@@ -86,7 +72,7 @@ infowindow.open(map, marker);
 }
 })(marker, i));
 }
-google.maps.event.addListener(corridor, 'mouseover', function(e) {
+google.maps.event.addListener(corridor, 'mouseover', function() {
    var pwContent = "<div style = 'width:200px;min-height:20px'><h3>Corridor of Innovation</h3></div>";
    polylineWindow.setContent(pwContent);
    polylineWindow.open(map,corridor);
