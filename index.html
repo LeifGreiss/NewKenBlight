@@ -11,6 +11,7 @@ width: 100%;
 </head>
 <body>
 <div id="map"></div>
+<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
 <script type ="text/javascript">
 function initMap() {
 var map = new google.maps.Map(document.getElementById('map'), {
@@ -47,7 +48,21 @@ var corridor = new google.maps.Polyline({
    strokeWeight: 4,
    title: "Corridor of Innovation"
 });
-var polylineWindow = new google.maps.InfoWindow;
+var polylineWindow = new InfoBox({
+   content: document.getElementById("infobox"),
+                 disableAutoPan: true,
+                 maxWidth: 150,
+                 pixelOffset: new google.maps.Size(-140, 0),
+                 zIndex: null,
+                  boxStyle: {
+                    background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
+                    opacity: 0.75,
+                    width: "320px"
+                },
+                closeBoxMargin: "12px 4px 2px 2px",
+                closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
+                infoBoxClearance: new google.maps.Size(1, 1)
+            });
 var infowindow = new google.maps.InfoWindow;
 var marker, i;
 for(var i=0; i<locationss.length; i++){
