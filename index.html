@@ -72,8 +72,10 @@ infowindow.open(map, marker);
 }
 })(marker, i));
 }
-google.maps.event.addListener(corridor, 'mouseover', function() {
+google.maps.event.addListener(corridor, 'mouseover', function(e) {
+   var position = e.latLng
    var pwContent = "<div style = 'width:200px;min-height:20px'><h3>Corridor of Innovation</h3></div>";
+   polylineWindow.setPosition(position);
    polylineWindow.setContent(pwContent);
    polylineWindow.open(map,corridor);
 });
