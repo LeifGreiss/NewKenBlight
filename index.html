@@ -73,17 +73,9 @@ infowindow.open(map, marker);
 }
 google.maps.event.addListener(corridor, 'mouseover', function(e) {
    var pwContent = "<div style = 'width:200px;min-height:20px'><h3>Corridor of Innovation</h3></div>";
-   //polylineWindow.setContent(pwContent);
-   //polylineWindow.open(map, corridor);
-   el = document.getElementById('pwcontent').parentNode.parentNode.parentNode;
-    el.firstChild.setAttribute('class', 'closeInfoWindow');
-    el.firstChild.setAttribute('title', 'Close Info Window');
-    el = el.previousElementSibling || el.previousSibling;
-    el.setAttribute('class', 'infoWindowBackground');
-    for (i = 0; i < 11; i = i + 1) {
-        el = el.previousElementSibling || el.previousSibling;
-        el.style.display = 'none';
-}});
+   polylineWindow.setContent(pwContent);
+   polylineWindow.open(corridor);
+});
 google.maps.event.addListener(corridor, 'mouseout', function() {
     polylineWindow.close();
 });
