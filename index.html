@@ -70,11 +70,11 @@ infowindow.open(map, marker);
 }
 })(marker, i));
 }
-  google.maps.event.addListener(corridor, 'mouseover', function() {
-    myInfoWindow.open(mymap);
+google.maps.event.addListener(corridor, 'mouseover', function() {
+    polylineWindow.open(mymap);
 });
 google.maps.event.addListener(corridor, 'mouseout', function() {
-    myInfoWindow.close();
+    polylineWindow.close();
 });
 infowindow.setContent("The Corridor of Innovation");
 corridor.setMap(map);
