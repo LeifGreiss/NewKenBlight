@@ -15,9 +15,9 @@ width: 100%;
 <script type ="text/javascript">
 function initMap() {
 var map = new google.maps.Map(document.getElementById('map'), {
-zoom: 13,
+zoom: 10,
 //I didn't want to set the zoom at too far to avoid the markers clustering too close together, I felt 14 as the default was a decent happy medium.
-center: {lat: 40.563857,  lng: -79.764128},
+center: {lat: 40.565411, lng: -79.765182},
 //The map is centered at the Berkey Creamery's coordinates, all markers are not immediately in view, but most of them are.
 mapTypeId: google.maps.MapTypeId.ROADMAP
 });
@@ -45,7 +45,7 @@ var corridor = new google.maps.Polyline({
    geodesic: true,
    strokeColor: '#FF0000',
    strokeOpacity: .5,
-   strokeWeight: 4,
+   strokeWeight: 6,
    title: "Corridor of Innovation"
 });
 var polylineWindow = new google.maps.InfoWindow;
