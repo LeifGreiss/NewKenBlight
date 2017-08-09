@@ -11,11 +11,10 @@ width: 100%;
 </head>
 <body>
 <div id="map"></div>
-<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
 <script type ="text/javascript">
 function initMap() {
 var map = new google.maps.Map(document.getElementById('map'), {
-zoom: 15,
+zoom: 16,
 //I didn't want to set the zoom at too far to avoid the markers clustering too close together, I felt 14 as the default was a decent happy medium.
 center: {lat: 40.565411, lng: -79.765182},
 //The map is centered at the Berkey Creamery's coordinates, all markers are not immediately in view, but most of them are.
