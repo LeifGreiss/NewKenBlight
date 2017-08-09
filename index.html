@@ -71,12 +71,12 @@ infowindow.open(map, marker);
 })(marker, i));
 }
 google.maps.event.addListener(corridor, 'mouseover', function() {
-    polylineWindow.open(map);
+    polylineWindow.open(map, corridor);
+    polylineWindow.setContent("The Corridor of Innovation");
 });
 google.maps.event.addListener(corridor, 'mouseout', function() {
     polylineWindow.close();
 });
-infowindow.setContent("The Corridor of Innovation");
 corridor.setMap(map);
 }
     </script>
