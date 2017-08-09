@@ -71,7 +71,7 @@ infowindow.open(map, marker);
 })(marker, i));
 }
 google.maps.event.addListener(corridor, 'mouseover', function() {
-    polylineWindow.open(mymap);
+    polylineWindow.open(map);
 });
 google.maps.event.addListener(corridor, 'mouseout', function() {
     polylineWindow.close();
